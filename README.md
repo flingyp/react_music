@@ -68,14 +68,14 @@ Inline JavaScript is not enabled. Is it set in your options?
 
 `cannot read property 'push' of undefined`
 
-然后到网上查找该类问题的解决方案，找到这一篇[文章](https://segmentfault.com/a/1190000022272003)。
+然后到网上查找该类问题的**解决方案**，找到这一篇[文章](https://segmentfault.com/a/1190000022272003)。
 
-总结下来： 我调用这个方法所在组件不是个路由组件，所以提示 push 是 undefined， 只有路由组件才能调用该方法。 这个时候就会要到一个高阶组件 `withRouter`
+总结下来： 我调用这个方法**所在组件不是个路由组件**，所以提示 push 是 undefined， 只有路由组件才能调用该方法。 这个时候就会要到一个**高阶组件 `withRouter`**
 
 withRouter介绍： 如果我们某个组件没有被Router管理, 但是我们要依靠它去跳转一个页面, 比如点击页面的logo, 返回首页, 这时候就可以使用withRouter`来做。
 
 这个时候我又考虑什么才是路由组件？？？毕竟学React-Router没有考虑很全面，做项目就会把这种坑给填了。
 
-路由组件： 只有被Route组件包裹的算路由组件
+**路由组件： 只有被Route组件包裹的算路由组件**
 
 
