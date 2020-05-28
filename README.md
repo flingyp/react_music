@@ -10,6 +10,7 @@
 + React-Router
 + Redux
 + React-Redux
++ Redux-thunk 中间件
 + Less预处理器
 + Ant Design UI框架
 
@@ -17,3 +18,23 @@
 ### 配置Less预处理器
 
 + [参考文章](https://www.jianshu.com/p/87ecc24447c0)
+
+
+### Ant Design 样式引入问题
+
+我的Ant Design 样式 `import 'antd/dist/antd.less'; ` 在 App.less 文件引入 会报错， 错误提示如下
+
+```
+./node_modules/antd/lib/button/style/index.less (./node_modules/css-loader??ref--6-oneOf-7-1!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js!./node_modules/antd/lib/button/style/index.less)
+// https://github.com/ant-design/ant-motion/issues/44
+.bezierEasingMixin();
+^
+Inline JavaScript is not enabled. Is it set in your options?
+      in /myproject/react/antedemo/node_modules/antd/lib/style/color/bezierEasing.less (line 110, column 0)
+```
+
+在全局组件 `App.jsx` 中引入就不会报错。
+
+网上搜索了大概的解决方案，但是都太久了好像对不上，就暂时没有解决这个问题，先记录下。
+
+
