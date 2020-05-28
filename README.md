@@ -4,6 +4,24 @@
 
 > 这次是项目是对 PC-ONEMUSIC项目进行一次重构。 [PC-ONEMUSIC地址](https://github.com/flingyp/PC-ONEMUSIC)。这次重构使用的框架不是国内的火爆前端框架 Vue 而是 在国外较流行一些的前端框架 React。 目的就是：最近学了React 这款框架想找项目做，找着找着还是决定用 **PC-ONEMUSIC项目** 准备重构一遍。
 
+### 文件结构梳理
+```
+1. src
+      + components          组件存放位置          
+            + common        公共组件
+      + css                 样式存放位置
+            +  components   组件的CSS样式存放位置
+            +  pages        页面的CSS样式存放位置
+            +  GlobalVariable.less 全局样式变量
+      + pages               页面存放位置
+      + router              路由管理
+      + static              静态文件存放位置
+      + util                方法 + 请求等第三方插件存放位置
+      + App.jsx             全局组件
+      + App.less            全局样式
+      + index.js            项目入口
+```
+
 ### 技术栈
 
 + React
