@@ -1,9 +1,20 @@
+import {BrowserRouter as  Route, Link} from 'react-router-dom'
 import React, { Component } from 'react';
 import '../css/pages/Home.less'
-import {Layout, Menu, Button, Input} from 'antd'
-import { createFromIconfontCN, CaretLeftOutlined, CaretRightOutlined, SearchOutlined  } from '@ant-design/icons';
+import {Layout, Menu, Button} from 'antd'
+import { createFromIconfontCN, CaretLeftOutlined, CaretRightOutlined  } from '@ant-design/icons';
+import HomeHeader from '../components/HomeComponents/HomeHeader'
+import { withRouter } from 'react-router-dom'
+
+
+import Discovery from './Discovery'
+import PlayList from './PlayList'
+import NewMusic from './NewMusic'
+import Mv from './Mv'
 
 const { Header, Content, Sider } = Layout;
+
+
 
 
 const IconFont = createFromIconfontCN({
@@ -15,6 +26,8 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
+        // 重定向到 /discovery 页面
+        this.props.history.push('/discovery'); 
     }
     render() { 
         return ( 
@@ -35,54 +48,38 @@ class Home extends Component {
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                             <Menu.Item className="Menu-Item" key="1">
                                 <IconFont type="icon-kefu" className="iconf" />
-                                <span className="menus">发现音乐</span>
+                                <Link to="/discovery" className="menus">发现音乐</Link>
                             </Menu.Item>
                             <Menu.Item className="Menu-Item" key="2">
                                 <IconFont type="icon-yinlegedan-" className="iconf" />
-                                <span className="menus">推荐歌单</span>
+                                <Link to="/playlist" className="menus">推荐歌单</Link>
                             </Menu.Item>
                             <Menu.Item className="Menu-Item" key="3">
                                 <IconFont type="icon-xinpin" className="iconf" />
-                                <span className="menus">最新音乐</span>
+                                <Link to="/newmusic" className="menus">最新音乐</Link>
                             </Menu.Item>
                             <Menu.Item className="Menu-Item" key="4">
                                 <IconFont type="icon-shexiangji" className="iconf" />
-                                <span className="menus">发现MV</span>
+                                <Link to="/mv" className="menus">发现MV</Link>
                             </Menu.Item>
                         </Menu>
                     </Sider>
 
                     <Layout className="site-layout" style={{ marginLeft: 200 }}>
                         <Header className="site-layout-background Header" style={{ padding: 0 }}>
-                            <div>
-                                <Input
-                                    style={{borderRadius: '.625rem'}}
-                                    placeholder="搜索歌曲、歌手或MV"
-                                    prefix={<SearchOutlined />}
-                                    size="large"
-                                />
-                            </div>
-                            <div>
-                                <h1>React-Music</h1>
-                            </div>
-                            <div>等待开发</div>
+                            <HomeHeader></HomeHeader>
                         </Header>
                         <Content style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
-                            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
-                                    内容部分
-                            </div>
-                            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
-                                    内容部分
-                            </div>
-                            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
-                                    内容部分
-                            </div>
+                                <Route exact path="/discovery" component={Discovery}></Route>
+                                <Route exact path="/playlist" component={PlayList}></Route>
+                                <Route exact path="/newmusic" component={NewMusic}></Route>
+                                <Route exact path="/mv" component={Mv}></Route>
                         </Content>
                     </Layout>
-                </Layout>,
+                </Layout>
             </div>    
         );
     }
 }
  
-export default Home;
+export default withRouter(Home);
