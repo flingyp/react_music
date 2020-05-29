@@ -34,9 +34,11 @@
 + React-Router
 + Redux
 + React-Redux
-+ Redux-thunk 中间件
 + Less预处理器
-+ Ant Design UI框架
++ Axios
++ [Ant Design UI框架](https://ant.design/docs/react/introduce-cn)
++ [react-lazyload](https://github.com/twobin/react-lazyload)
+
 
 ## 项目搭建遇到的大坑小坑记录
 
@@ -45,9 +47,10 @@
 + [参考文章](https://www.jianshu.com/p/87ecc24447c0)
 
 
-### Ant Design 样式引入问题
+### Ant Design、轮播插件 等样式引入问题
 
-我的Ant Design 样式 `import 'antd/dist/antd.less'; ` 在 App.less 文件引入 会报错， 错误提示如下
+我的Ant Design 样式 `@import 'antd/dist/antd.less';` 在 App.less 文件引入 会报错。但引入自己定义的样式文件不会报错。 
+以下错误提示是Ant Design的错误代码：
 
 ```
 ./node_modules/antd/lib/button/style/index.less (./node_modules/css-loader??ref--6-oneOf-7-1!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js!./node_modules/antd/lib/button/style/index.less)
@@ -77,5 +80,9 @@ withRouter介绍： 如果我们某个组件没有被Router管理, 但是我们�
 这个时候我又考虑什么才是路由组件？？？毕竟学React-Router没有考虑很全面，做项目就会把这种坑给填了。
 
 **路由组件： 只有被Route组件包裹的算路由组件**
+
+### React map遍历 'index' is not defined no-undef 的问题
+
+[参考文章](https://blog.csdn.net/YAOYU007/article/details/82177577)
 
 

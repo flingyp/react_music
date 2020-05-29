@@ -1,4 +1,4 @@
-import {BrowserRouter as  Route, Link} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import React, { Component } from 'react';
 import '../css/pages/Home.less'
 import {Layout, Menu, Button} from 'antd'
@@ -70,10 +70,10 @@ class Home extends Component {
                             <HomeHeader></HomeHeader>
                         </Header>
                         <Content style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
-                                <Route exact path="/discovery" component={Discovery}></Route>
-                                <Route exact path="/playlist" component={PlayList}></Route>
-                                <Route exact path="/newmusic" component={NewMusic}></Route>
-                                <Route exact path="/mv" component={Mv}></Route>
+                            <Route exact path="/discovery" component={Discovery}></Route>
+                            <Route exact path="/playlist" component={PlayList}></Route>
+                            <Route exact path="/newmusic" component={NewMusic}></Route>
+                            <Route exact path="/mv" component={Mv}></Route>
                         </Content>
                     </Layout>
                 </Layout>

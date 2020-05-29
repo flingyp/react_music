@@ -1,0 +1,1 @@
+export const SET_SWIPER_DATA = 'swiperData';
