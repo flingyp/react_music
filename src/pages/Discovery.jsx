@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactSwiper from '../components/DiscoveryComponents/ReactSwiper' 
 import DiscoveryPlayList from '../components/DiscoveryComponents/DiscoveryPlayList'
+import DiscoveryNemMusic from '../components/DiscoveryComponents/DiscoveryNemMusic'
 import store from '../store/index';
 import {swiperData, personalizedData} from '../util/request'
 
@@ -13,6 +14,8 @@ class Discovery extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            DiscoveryPlayList: '推荐歌单',
+            DiscoveryNemMusic: '最新音乐'
         }
     }
 
@@ -31,7 +34,8 @@ class Discovery extends Component {
         return ( 
             <div>
                 <ReactSwiper swiperData={this.state.swiperData}></ReactSwiper>
-                <DiscoveryPlayList personalizeData={this.state.personalizeData} />
+                <DiscoveryPlayList personalizeData={this.state.personalizeData} DiscoveryPlayList={this.state.DiscoveryPlayList} />
+                <DiscoveryNemMusic DiscoveryNemMusic={this.state.DiscoveryNemMusic} />
             </div>
         );
     }

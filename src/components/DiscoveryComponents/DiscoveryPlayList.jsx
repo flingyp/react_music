@@ -42,7 +42,9 @@ class DiscoveryPlayList extends Component {
  
         return ( 
             <div className="container">
-                <div className="title">推荐歌单</div>
+                {
+                    this.props.DiscoveryPlayList ? <div className="title">{this.props.DiscoveryPlayList}</div> : <div className="title"></div>
+                }
                 <div className="disrecommend">
                     <ul>
                         {this.renderPersonalizeData()}
