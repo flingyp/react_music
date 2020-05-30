@@ -30,7 +30,7 @@ class HomeHeader extends Component {
      * 点击 React-OneMusic 回到首页面
      */
     goHomePage() {
-        this.props.history.push('/');
+        this.props.history.push('/discovery');
     }
 }
  

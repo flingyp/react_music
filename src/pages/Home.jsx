@@ -18,7 +18,7 @@ const { Header, Content, Sider } = Layout;
 
 
 const IconFont = createFromIconfontCN({
-    scriptUrl: '//at.alicdn.com/t/font_1848476_3va0w96agqg.js'
+    scriptUrl: '//at.alicdn.com/t/font_1848476_bqe6zojrx9k.js'
 });
 
 

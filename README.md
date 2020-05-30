@@ -36,6 +36,7 @@
 + React-Redux
 + Less预处理器
 + Axios
++ Iconfont图标库
 + [Ant Design UI框架](https://ant.design/docs/react/introduce-cn)
 + [react-lazyload](https://github.com/twobin/react-lazyload)
 
