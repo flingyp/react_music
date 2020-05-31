@@ -1,0 +1,67 @@
+@import '../GlobalVariable.less';
+
+
+.container{
+    .title{
+        padding: 0 0 1.25rem 2.1875rem;
+        font-size: @BigFontSize;
+        font-weight: 600;
+        opacity: 0.8;
+        letter-spacing: .0625rem;
+        text-shadow: .125rem .0625rem .3125rem rgba(0, 0, 0, 0.5);
+    }
+
+    .newmusic{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 6.6667vw;
+        .item{
+            width: 50%;
+            display: flex;
+            padding: .5rem 0rem;
+            border-radius: .3125rem;
+            padding: 1.3333vw 2.6667vw;
+            cursor: pointer;
+            .img_wrap{
+                img{
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: .625rem;
+                }
+            }
+            .song_wrap{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin-left: 0.5333vw;
+                color: rgba(230, 126, 34,.6);
+                font-size: @BigFontSize;
+                letter-spacing: 0.1333vw;
+                font-weight: 600;
+                text-shadow: 0.2667vw 0.2667vw 0.6667vw rgba(230, 126, 34,.6);
+            }
+        }
+
+        .item:hover {
+            transition: background-color 1s linear;
+            -webkit-transition: background-color 1s linear;
+            background: rgba(189, 195, 199, 0.8);
+        }
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .container{
+        .newmusic{
+            .item{
+                .song_wrap{
+                    font-size: @SmallFontSize;
+                    white-space: nowrap;  /*文本不会换行，文本会在在同一行上继续*/
+                    overflow: hidden;
+                    text-overflow: ellipsis;  /*显示省略符号来代表被修剪的文本*/
+                }
+            }
+        }
+    }
+}
