@@ -9,6 +9,10 @@ class DiscoveryPlayList extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
+<<<<<<< HEAD
+=======
+        console.log(props)
+>>>>>>> 56a1628fa97378e3460aa4a9e203c7315a6aa5f4
     }
 
     renderPersonalizeData() {
@@ -36,6 +40,12 @@ class DiscoveryPlayList extends Component {
     }
 
     render() { 
+<<<<<<< HEAD
+=======
+        const personalizeData = this.props.personalizeData
+        console.log(personalizeData)
+ 
+>>>>>>> 56a1628fa97378e3460aa4a9e203c7315a6aa5f4
         return ( 
             <div className="container">
                 {

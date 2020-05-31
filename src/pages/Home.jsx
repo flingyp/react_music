@@ -11,9 +11,14 @@ import Discovery from './Discovery'
 import PlayList from './PlayList'
 import NewMusic from './NewMusic'
 import Mv from './Mv'
+<<<<<<< HEAD
 import Audio from './Audio'
 
 const { Header, Content, Sider, Footer } = Layout;
+=======
+
+const { Header, Content, Sider } = Layout;
+>>>>>>> 56a1628fa97378e3460aa4a9e203c7315a6aa5f4
 
 
 
@@ -78,7 +83,10 @@ class Home extends Component {
                         </Content>
                     </Layout>
                 </Layout>
+<<<<<<< HEAD
                 <Audio src="http://m8.music.126.net/20200531165722/b80a07bf67e862ab7c8de84b0d05d74d/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/2686128901/8dea/86fa/31d5/1282a0e349767a79a89346eb419ba1bb.mp3" />
+=======
+>>>>>>> 56a1628fa97378e3460aa4a9e203c7315a6aa5f4
             </div>    
         );
     }
