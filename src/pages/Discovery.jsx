@@ -4,10 +4,10 @@ import DiscoveryPlayList from '../components/DiscoveryComponents/DiscoveryPlayLi
 import DiscoveryNemMusic from '../components/DiscoveryComponents/DiscoveryNemMusic'
 import DiscoveryMv from '../components/DiscoveryComponents/DiscoveryMv'
 import store from '../store/index';
-import {swiperData, personalizedData, newSongData, newMvData} from '../util/request'
+import {swiperData, personalizedData, newSongData, newMvData, songUrl} from '../util/request'
 
 import { connect } from 'react-redux'
-import {SET_SWIPER_DATA, SET_PERSONALIZE_DATA, SET_NEWSONG_DATA, SET_NEWMV_DATA} from '../store/actionTypes'
+import {SET_SWIPER_DATA, SET_PERSONALIZE_DATA, SET_NEWSONG_DATA, SET_NEWMV_DATA, GET_CURRENT_SONG_URL} from '../store/actionTypes'
 
 
 class Discovery extends Component {
@@ -42,11 +42,23 @@ class Discovery extends Component {
             <div>
                 <ReactSwiper swiperData={this.state.swiperData}></ReactSwiper>
                 <DiscoveryPlayList personalizeData={this.state.personalizeData} DiscoveryPlayList={this.state.DiscoveryPlayList} />
-                <DiscoveryNemMusic newSongData={this.state.newSongData} DiscoveryNemMusic={this.state.DiscoveryNemMusic} />
+                <DiscoveryNemMusic newSongData={this.state.newSongData} DiscoveryNemMusic={this.state.DiscoveryNemMusic}  goPlayMusic={this.goPlayMusic.bind(this)} />
                 <DiscoveryMv newMvData={this.state.newMvData} DiscoveryMv={this.state.DiscoveryMv} />
             </div>
         );
     }
+
+    async goPlayMusic(id) {
+        // 1. 获取 最新音乐 该item项的 歌曲id
+        // console.log(id)
+        // 2. 根据 歌曲 id 请求歌曲播放地址
+        const res = await songUrl(id)
+        const url = res.data.data[0].url
+        // 3. 把 歌曲的url 地址 存储到 redux 中
+        this.props.songUrl(url)
+        // 4. 播放歌曲 在 Home页面实现
+    }
+
 }
 
 const mapStateToProps = (state, props) => {
@@ -103,6 +115,16 @@ const mapDispatchToProps = (dispatch, props) => {
                 DisNewMv: res.data.data
             })
             return res.data.data;
+        },
+
+        /**
+         * 存储 播放歌曲的 url 地址
+         */
+        songUrl: async(url) => {
+            dispatch({
+                type: GET_CURRENT_SONG_URL,
+                currentUrl: url
+            })
         }
     }
 }

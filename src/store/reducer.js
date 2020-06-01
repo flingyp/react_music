@@ -1,4 +1,4 @@
-import {SET_SWIPER_DATA, SET_PERSONALIZE_DATA, SET_NEWSONG_DATA, SET_NEWMV_DATA} from './actionTypes'
+import {SET_SWIPER_DATA, SET_PERSONALIZE_DATA, SET_NEWSONG_DATA, SET_NEWMV_DATA, GET_CURRENT_SONG_URL} from './actionTypes'
 
 const defaultState = {}  // 用于设置 state 初始默认值
 
@@ -21,6 +21,11 @@ export default (state = defaultState, action) => {
 
     if(action.type === SET_NEWMV_DATA) {
         newState[action.type] = action.DisNewMv
+        return newState
+    }
+
+    if(action.type === GET_CURRENT_SONG_URL) {
+        newState[action.type] = action.currentUrl
         return newState
     }
 

@@ -6,19 +6,20 @@ class DiscoveryNemMusic extends Component {
         super(props);
         this.state = {  }
     }
+
     render() { 
         return (  
             <div className="container">
                 {
-                    this.props.DiscoveryNemMusic? <div className="title">最新音九</div> : <div className="title"></div>
+                    this.props.DiscoveryNemMusic? <div className="title">{this.props.DiscoveryNemMusic}</div> : <div className="title"></div>
                 }
                 <div className="newmusic">
 
                     {
-                        this.props.newSongData && this.props.newSongData.map(function(item) {
+                        this.props.newSongData && this.props.newSongData.map((item) => {
                             return (
                                 <div key={item.id} className="item">
-                                    <div className="img_wrap">
+                                    <div className="img_wrap" onDoubleClick={() => {this.props.goPlayMusic(item.id)}}>
                                         <img src={item.picUrl} alt=""/>
                                     </div>
                                     <div className="song_wrap">

@@ -46,3 +46,17 @@ export const newMvData = async (limit) => {
         }
     })
 }
+
+
+/**
+ * 获取歌曲的URL播放地址
+ * 请求地址：/song/url     参数  id = xxx
+ */
+
+export const songUrl = async (id) => {
+    return await axios.get('/song/url', {
+        params: {
+            id
+        }
+    })
+}

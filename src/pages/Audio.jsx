@@ -9,7 +9,7 @@ class Audio extends Component {
     render() { 
         return (  
             <div className="audio_box">
-                <audio className="audio" controls loop src={this.props.src}></audio>
+                <audio className="audio" autoPlay controls loop src={this.props.src}></audio>
             </div>
         );
     }

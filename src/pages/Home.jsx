@@ -5,6 +5,7 @@ import {Layout, Menu, Button} from 'antd'
 import { createFromIconfontCN, CaretLeftOutlined, CaretRightOutlined  } from '@ant-design/icons';
 import HomeHeader from '../components/HomeComponents/HomeHeader'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 import Discovery from './Discovery'
@@ -29,7 +30,10 @@ class Home extends Component {
         this.state = {  }
         // 重定向到 /discovery 页面
         this.props.history.push('/discovery'); 
+
+        console.log(this.props.children)
     }
+
     render() { 
         return ( 
             <div>
@@ -79,11 +83,19 @@ class Home extends Component {
                     </Layout>
                 </Layout>
                 <Footer style={{ textAlign: 'center' }}>
-                    <Audio src="http://m8.music.126.net/20200531165722/b80a07bf67e862ab7c8de84b0d05d74d/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/2686128901/8dea/86fa/31d5/1282a0e349767a79a89346eb419ba1bb.mp3" />
+                    <Audio src={this.props.url} />
                 </Footer>
             </div>    
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        url: state.getCurrentSongUrl
+    }
+}
+
+Home = connect(mapStateToProps)(Home)
  
 export default withRouter(Home);
