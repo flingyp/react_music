@@ -20,9 +20,9 @@ class DiscoveryPlayList extends Component {
                 </li>
             )
         } else {
-            return  personalizeData && personalizeData.map(function(item) {
+            return  personalizeData && personalizeData.map((item) => {
                 return  <li key={item.id} className="item">
-                            <div className="itemImg">
+                            <div className="itemImg" onClick={() => {this.props.goPlayListDetail(item.id)}}>
                                 <div className="desc-wrap">
                                     <span className="desc">{item.copywriter}</span>
                                 </div>

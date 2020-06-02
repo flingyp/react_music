@@ -1,4 +1,4 @@
-import {Route, Link} from 'react-router-dom'
+import {Route, Link, Redirect} from 'react-router-dom'
 import React, { Component } from 'react';
 import '../css/pages/Home.less'
 import {Layout, Menu, Button} from 'antd'
@@ -13,6 +13,7 @@ import PlayList from './PlayList'
 import NewMusic from './NewMusic'
 import Mv from './Mv'
 import Audio from './Audio'
+import PlayListDetail from './PlayListDetail'
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -28,10 +29,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
-        // 重定向到 /discovery 页面
-        this.props.history.push('/discovery'); 
-
-        console.log(this.props.children)
     }
 
     render() { 
@@ -77,8 +74,10 @@ class Home extends Component {
                         <Content style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
                             <Route exact path="/discovery" component={Discovery}></Route>
                             <Route exact path="/playlist" component={PlayList}></Route>
+                            <Route path="/playlist/:id" component={PlayListDetail}></Route>
                             <Route exact path="/newmusic" component={NewMusic}></Route>
                             <Route exact path="/mv" component={Mv}></Route>
+                            <Redirect from="/" to="/discovery"></Redirect>
                         </Content>
                     </Layout>
                 </Layout>

@@ -41,7 +41,7 @@ class Discovery extends Component {
         return ( 
             <div>
                 <ReactSwiper swiperData={this.state.swiperData}></ReactSwiper>
-                <DiscoveryPlayList personalizeData={this.state.personalizeData} DiscoveryPlayList={this.state.DiscoveryPlayList} />
+                <DiscoveryPlayList personalizeData={this.state.personalizeData} DiscoveryPlayList={this.state.DiscoveryPlayList} goPlayListDetail={this.goPlayListDetail.bind(this)} />
                 <DiscoveryNemMusic newSongData={this.state.newSongData} DiscoveryNemMusic={this.state.DiscoveryNemMusic}  goPlayMusic={this.goPlayMusic.bind(this)} />
                 <DiscoveryMv newMvData={this.state.newMvData} DiscoveryMv={this.state.DiscoveryMv} />
             </div>
@@ -57,6 +57,12 @@ class Discovery extends Component {
         // 3. 把 歌曲的url 地址 存储到 redux 中
         this.props.songUrl(url)
         // 4. 播放歌曲 在 Home页面实现
+    }
+
+    goPlayListDetail(id) {
+        console.log(id)
+        // 跳转到 歌单详情页面
+        this.props.history.push(`/playlist/${id}`) 
     }
 
 }

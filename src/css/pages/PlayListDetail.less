@@ -1,0 +1,114 @@
+@import '../GlobalVariable.less';
+.detail{
+    .top{
+        width: 88%;
+        margin: 1.3333vw auto;
+        display: flex;
+        .img_wrap{
+            width: 12.5rem;
+            height: 12.5rem;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 0.6667vw;
+            }
+        }
+
+        .info_wrap{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-left: 2.0667vw;
+            .title{
+                font-size: @BigFontSize;
+                color: @FontColor;
+                text-shadow: .3125rem .3125rem .9375rem @FontColor;
+                font-weight: 500;
+            }
+
+            .author{
+                img{
+                    width: 1.4vw;
+                    height: 1.4vw;
+                    border-radius: 50%;
+                    margin-right: 0.2667vw;
+                }
+                .author_name{
+                    font-size:@SmallFontSize;
+                    font-weight: 600;
+                }
+            }
+
+            .tag{
+                display: flex;
+                margin: 7px 0 0 0;
+                .tag_title{
+                    font-weight: 600;
+                    margin-right: 0.5333vw;
+                }
+                ul{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .desc{
+                .desc_title{
+                    margin: 0.5333vw 0;
+                    font-weight: 700;
+                }
+                .desc_content{
+                    overflow: hidden;
+                    display: -webkit-box; 
+                    -webkit-line-clamp: 2;  
+                    -webkit-box-orient: vertical;
+                }
+            }
+        }
+    }
+
+    .info{
+        margin: 6vw 0;
+
+        .list{
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .list_index{
+                flex: 1;
+                margin-left: 1.3333vw;
+                font-size: @SmallFontSize;
+                color: @FontColor;
+            }
+            
+            .list_item{
+                flex: 1;
+                img{
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            .list_title{
+                flex: 3;
+            }
+
+            .list_singer{
+                flex: 3;
+            }
+
+            .list_cell{
+                flex: 3;
+            }
+
+            .list_time{
+                flex: 1;
+            }
+        }
+    }
+}
