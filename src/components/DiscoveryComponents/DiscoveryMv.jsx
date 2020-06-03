@@ -18,10 +18,10 @@ class DiscoveryMv extends Component {
                 }
                 <div className="newmv">
                     {
-                        this.props.newMvData && this.props.newMvData.map(function(item) {
+                        this.props.newMvData && this.props.newMvData.map((item) => {
                             return (
                                 <div key={item.id} className="item">
-                                    <div className="img_wrap">
+                                    <div className="img_wrap" onClick={() => {this.props.goPlayMv(item.id)}}>
                                         <img src={item.cover} alt=""/>
                                         <div className="num_wrap">
                                             <IconFont className="iconfont" type="icon-bofang" />

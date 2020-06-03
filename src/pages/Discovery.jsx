@@ -43,7 +43,7 @@ class Discovery extends Component {
                 <ReactSwiper swiperData={this.state.swiperData}></ReactSwiper>
                 <DiscoveryPlayList personalizeData={this.state.personalizeData} DiscoveryPlayList={this.state.DiscoveryPlayList} goPlayListDetail={this.goPlayListDetail.bind(this)} />
                 <DiscoveryNemMusic newSongData={this.state.newSongData} DiscoveryNemMusic={this.state.DiscoveryNemMusic}  goPlayMusic={this.goPlayMusic.bind(this)} />
-                <DiscoveryMv newMvData={this.state.newMvData} DiscoveryMv={this.state.DiscoveryMv} />
+                <DiscoveryMv newMvData={this.state.newMvData} DiscoveryMv={this.state.DiscoveryMv} goPlayMv={this.goPlayMv.bind(this)} />
             </div>
         );
     }
@@ -62,6 +62,12 @@ class Discovery extends Component {
     goPlayListDetail(id) {
         // 跳转到 歌单详情页面
         this.props.history.push(`/playlist/${id}`) 
+    }
+
+    goPlayMv(id) {
+        console.log(id)
+        // 跳转到 MV 播放页面
+        this.props.history.push(`/mv/${id}`)
     }
 
 }

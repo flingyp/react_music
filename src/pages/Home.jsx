@@ -14,6 +14,7 @@ import NewMusic from './NewMusic'
 import Mv from './Mv'
 import Audio from './Audio'
 import PlayListDetail from './PlayListDetail'
+import MvDetail from './MvDetail'
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -77,6 +78,7 @@ class Home extends Component {
                             <Route path="/playlist/:id" component={PlayListDetail}></Route>
                             <Route exact path="/newmusic" component={NewMusic}></Route>
                             <Route exact path="/mv" component={Mv}></Route>
+                            <Route path="/mv/:id" component={MvDetail}></Route>
                             <Redirect from="/" to="/discovery"></Redirect>
                         </Content>
                     </Layout>

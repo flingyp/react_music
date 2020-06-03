@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import '../css/pages/PlayListDetail.less'
 import { List } from 'antd';
+import { connect } from 'react-redux'
 
-import {playlistDetail} from '../util/request'
+import {playlistDetail, songUrl} from '../util/request'
+
+import {GET_CURRENT_SONG_URL} from '../store/actionTypes'
 
 
 
@@ -110,7 +113,7 @@ class PlayListDetail extends Component {
                             <div className="list">
                                 <div className="list_index">{index+1}</div>
                                 <div className="list_item">
-                                    <img src={item.al.picUrl} alt=""/>
+                                    <img src={item.al.picUrl} alt="" onClick={this.goPlayMusic.bind(this, item.id)} />
                                 </div>
                                 <div className="list_title">{item.name}</div>
                                 <div className="list_singer">
@@ -128,6 +131,38 @@ class PlayListDetail extends Component {
             </div>
         );
     }
+
+    async goPlayMusic(id) {
+        // 1. 获取 最新音乐 该item项的 歌曲id
+        console.log(id)
+        // 2. 根据 歌曲 id 请求歌曲播放地址
+        const res = await songUrl(id)
+        const url = res.data.data[0].url
+        // 3. 把 歌曲的url 地址 存储到 redux 中
+        this.props.songUrl(url)
+        // 4. 播放歌曲 在 Home页面实现
+    }
 }
+
+const mapStateToProps = (state, props) => {
+    return {}
+}
+
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        /**
+         * 存储 播放歌曲的 url 地址
+         */
+        songUrl: async(url) => {
+            dispatch({
+                type: GET_CURRENT_SONG_URL,
+                currentUrl: url
+            })
+        }
+    }
+}
+
+PlayListDetail = connect(mapStateToProps ,mapDispatchToProps)(PlayListDetail)
  
 export default PlayListDetail;

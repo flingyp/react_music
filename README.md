@@ -20,6 +20,7 @@
             + Mv.jsx          MV页面
             + NewMusic.jsx    最新音乐页面
             + PlayList.jsx    推荐歌单页面
+            + PlayListDetail.jsx  歌单详情页面
       + store               Redux相关文件  
       + static              静态文件存放位置
       + util                方法 + 请求等第三方插件存放位置
@@ -37,6 +38,7 @@
 + Less预处理器
 + Axios
 + Iconfont图标库
++ video-react 视频组件
 + [Ant Design UI框架](https://ant.design/docs/react/introduce-cn)
 + [react-lazyload](https://github.com/twobin/react-lazyload)
 
