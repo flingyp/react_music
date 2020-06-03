@@ -53,6 +53,10 @@
                     padding: 0;
                     display: flex;
                     align-items: center;
+
+                    li {
+                        margin: 0 2px;
+                    }
                 }
             }
 
@@ -82,20 +86,24 @@
             .list_index{
                 flex: 1;
                 margin-left: 1.3333vw;
-                font-size: @SmallFontSize;
+                font-size: @BigFontSize;
                 color: @FontColor;
             }
             
             .list_item{
                 flex: 1;
+                cursor: pointer;
                 img{
-                    width: 70px;
-                    height: 70px;
+                    width: 80px;
+                    height: 80px;
                 }
             }
 
             .list_title{
                 flex: 3;
+                font-size: @BigFontSize;
+                color: @FontColor;
+                text-shadow: 1px 1px 20px @FontColor;
             }
 
             .list_singer{
@@ -109,6 +117,11 @@
             .list_time{
                 flex: 1;
             }
+        }
+
+        .list:hover {
+            transition: background linear .4s;
+            background:#fff;
         }
     }
 }

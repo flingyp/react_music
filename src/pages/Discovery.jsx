@@ -60,7 +60,6 @@ class Discovery extends Component {
     }
 
     goPlayListDetail(id) {
-        console.log(id)
         // 跳转到 歌单详情页面
         this.props.history.push(`/playlist/${id}`) 
     }

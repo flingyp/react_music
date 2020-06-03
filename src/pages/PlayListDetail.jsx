@@ -1,53 +1,102 @@
 import React, { Component } from 'react';
 import '../css/pages/PlayListDetail.less'
-import { List, Avatar } from 'antd';
+import { List } from 'antd';
 
-const data = [
-    {
-      title: 'Ant Design Title 1',
-    },
-    {
-      title: 'Ant Design Title 2',
-    },
-    {
-      title: 'Ant Design Title 3',
-    },
-    {
-      title: 'Ant Design Title 4',
-    },
-];
+import {playlistDetail} from '../util/request'
+
+
 
 
 
 class PlayListDetail extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            topInfo: {
+                topImg: '',
+                topTitle: '',
+                topAuthorHead: '',
+                topAuthorName: '',
+                topTags: [],
+                topDesc: ''
+            },
+            detail:[]
+        }
     }
+
+    async componentWillMount() {
+        // 获取当前歌单的id
+        const id = this.props.match.params.id
+        const res = await playlistDetail(id)
+        const playlist = res.data.playlist
+        let topInfo = this.state.topInfo
+        topInfo = this.getTopInfo(topInfo, playlist)
+        let detail = this.state.detail
+        detail = this.getDetailInfo(playlist.tracks)
+        this.setState({
+            topInfo: topInfo,
+            detail : detail
+        })
+        
+    }
+    // 对 歌单 top 部分 数据的处理
+    getTopInfo(info, playlist) {
+        info.topImg = playlist.coverImgUrl
+        info.topTitle = playlist.name
+        info.topAuthorHead = playlist.creator.avatarUrl
+        info.topAuthorName = playlist.creator.nickname 
+        info.topTags = playlist.tags
+        info.topDesc = playlist.description
+
+        return info
+    }
+
+    // 对 歌单 歌曲 信息 detail 部分数据处理
+    getDetailInfo(tracks) {
+        // 对歌曲的时长进行处理
+        tracks.map((item) => {
+            let duration = item.dt
+            const miao = duration / 1000
+            let min = Math.ceil(miao / 60) // 分钟
+            let second = Math.floor(miao % 60) // 秒
+            if(min<10) {
+                min = '0' + min
+            }
+            if(second<10) {
+                second = '0' + second
+            }
+            let time = `${min}:${second}`
+            item.dt = time
+        })
+
+        return tracks
+    }
+
     render() { 
         return ( 
             <div className="detail">
                 <div className="top">
                     <div className="img_wrap">
-                        <img src="http://p1.music.126.net/tJ4oSmNVPZS3jZpsUYnOzA==/109951165032380705.jpg" alt=""/>
+                        <img src={this.state.topInfo.topImg} alt=""/>
                     </div>
 
                     <div className="info_wrap">
-                        <p className="title">[华语速爆新歌] 最新华语音乐推荐</p>
+                        <p className="title">{this.state.topInfo.topTitle}</p>
                         <div className="author">
-                            <img src="http://p1.music.126.net/LzIA_BYxqJj9mrj1NfCWDQ==/109951164873881480.jpg" alt=""/>
-                            <span className="author_name">网易云音乐</span>
+                            <img src={this.state.topInfo.topAuthorHead} alt=""/>
+                            <span className="author_name">{this.state.topInfo.topAuthorName}</span>
                         </div>
                         <div className="tag">
                             <span className="tag_title">标签:</span>
                             <ul>
-                                <li>华语</li>
+                                {
+                                    this.state.topInfo && this.state.topInfo.topTags.map((item, index) => <li key={index}>{item}</li> )
+                                }
                             </ul>
                         </div>
                         <div className="desc">
                             <div className="desc_title">简介:</div>
-                            <span className="desc_content">网易云音乐是8亿人都在使用的音网易云音乐是8亿人都在使用的音乐平台网易云音乐是8亿人都在使用的音乐平台乐平台，致力于帮助音乐爱好者发现音乐惊喜，帮助音乐人实现梦想。 
-2019年8月31日起，将不再提供实时在线人工服务。您可以优先通过自助方式解决问题，如仍需求助，可在相关页面留下您的问题，后续会有人工为您解答，辛苦您耐心等待，给您带来的不便敬请谅解。 如果仍然不能解决您的问题，可以邮件我们： 用户：ncm5990@163.com 音乐人：yyr599@163.com</span>
+                            <span className="desc_content">{this.state.topInfo.topDesc}</span>
                         </div>
                     </div>
                 </div>
@@ -55,18 +104,22 @@ class PlayListDetail extends Component {
                 <div className="info">
                     <List
                         itemLayout="horizontal"
-                        dataSource={data}
+                        dataSource={this.state.detail}
                         renderItem={(item,index) => (
                         <List.Item>
                             <div className="list">
                                 <div className="list_index">{index+1}</div>
                                 <div className="list_item">
-                                    <img src="http://p2.music.126.net/Po3E-A9OsBq2sLZBbobr2A==/109951165016320232.jpg" alt=""/>
+                                    <img src={item.al.picUrl} alt=""/>
                                 </div>
-                                <div className="list_title">节奏病</div>
-                                <div className="list_singer">刘雨昕XIN</div>
-                                <div className="list_cell">Hello (录音室版)</div>
-                                <div className="list_time">04:15</div>
+                                <div className="list_title">{item.name}</div>
+                                <div className="list_singer">
+                                    {
+                                        item && item.ar.map((singer, index) => <span key={index}>{singer.name}</span>)
+                                    }
+                                </div>
+                                <div className="list_cell">{item.al.name}</div>
+                                <div className="list_time">{item.dt}</div>
                             </div>
                         </List.Item>
                         )}

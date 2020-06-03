@@ -60,3 +60,16 @@ export const songUrl = async (id) => {
         }
     })
 }
+
+/**
+ * 获取歌单详情 数据
+ * 请求地址：  /playlist/detail 参数 id (歌单id)
+ */
+
+export const playlistDetail = async (id) => {
+    return await axios.get('/playlist/detail', {
+        params: {
+            id
+        }
+    })
+}
