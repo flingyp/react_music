@@ -89,3 +89,15 @@ withRouter介绍： 如果我们某个组件没有被Router管理, 但是我们�
 [参考文章](https://blog.csdn.net/YAOYU007/article/details/82177577)
 
 
+### 解决react-router 带参数的路由 参数改变了 路由路径跳转了 页面数据没有刷新的问题
+
+> 我在 MV 播放页面的 相关推荐遇到这个问题， 点击相关MV后 路由路径跳转了 参数也改变了 但是 页面上的数据没有刷新
+解决方法：在 Home 页面上 的  Route 的标签 的父节点Content标签上添加了  `key={this.props.location.key}` 就可以解决问题。
+
+在路由组件上最上层元素上加一个key增加路由的识别度，因为普通的跳转是根据path来识别的，但是path带上参数时，路由无法精确识别。不过，在跳转页面的时候，每个地址都会在localtion对象里添加一个key
+[参考文章](https://blog.csdn.net/qq_36990322/article/details/89671289)
+
+
+### 项目使用 != 报这样的警告 `Expected '!==' and instead saw '!='` 
+
+解决方法： 在同一内行 添加 这条注释 `//eslint-disable-line`

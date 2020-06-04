@@ -73,3 +73,52 @@ export const playlistDetail = async (id) => {
         }
     })
 }
+
+/**
+ * 获取 MV 播放地址
+ * 请求地址: /mv/url 参数 id (mv id)
+ */
+export const mvUrl = async (id) => {
+    return await axios.get('/mv/url', {
+        params: {
+            id
+        }
+    })
+}
+
+/**
+ * 获取 MV 相关信息
+ * 请求地址： /mv/detail  参数 mvid (mv id)
+ */
+export const mvDetail = async (id) => {
+    return await axios.get('/mv/detail', {
+        params: {
+            mvid: id
+        }
+    })
+}
+
+/**
+ * 获取 歌手相关信息 
+ * 请求地址： /artists 参数 id (歌手id)
+ */
+export const artistDesc = async (id) => {
+    return await axios.get('/artists', {
+        params: {
+            id
+        }
+    })
+}
+
+/**
+ * 获取 相似 MV  
+ * 参数地址： /simi/mv 参数 id (mv id)
+ */
+
+export const simiMv = async (id) => {
+    return await axios.get('/simi/mv', {
+        params: {
+            mvid: id
+        }
+    })
+}

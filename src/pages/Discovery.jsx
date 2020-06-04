@@ -65,7 +65,6 @@ class Discovery extends Component {
     }
 
     goPlayMv(id) {
-        console.log(id)
         // 跳转到 MV 播放页面
         this.props.history.push(`/mv/${id}`)
     }

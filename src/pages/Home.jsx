@@ -1,4 +1,4 @@
-import {Route, Link, Redirect} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import React, { Component } from 'react';
 import '../css/pages/Home.less'
 import {Layout, Menu, Button} from 'antd'
@@ -30,6 +30,11 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
+
+        console.log(props)
+        if(props.location.pathname != '/discovery' && props.location.pathname != '/playlist' && props.location.pathname != '/newmusic' && props.location.pathname != '/mv') { //eslint-disable-line
+            props.history.push('/discovery') 
+        }
     }
 
     render() { 
@@ -72,14 +77,13 @@ class Home extends Component {
                         <Header className="site-layout-background Header" style={{ padding: 0 }}>
                             <HomeHeader></HomeHeader>
                         </Header>
-                        <Content style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
+                        <Content key={this.props.location.key} style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
                             <Route exact path="/discovery" component={Discovery}></Route>
                             <Route exact path="/playlist" component={PlayList}></Route>
                             <Route path="/playlist/:id" component={PlayListDetail}></Route>
                             <Route exact path="/newmusic" component={NewMusic}></Route>
                             <Route exact path="/mv" component={Mv}></Route>
                             <Route path="/mv/:id" component={MvDetail}></Route>
-                            <Redirect from="/" to="/discovery"></Redirect>
                         </Content>
                     </Layout>
                 </Layout>
