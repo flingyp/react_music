@@ -1,0 +1,73 @@
+.top_card{
+    height: 230px;
+    width: 68vw;
+    margin: 0.6667vw auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .icon_warp{
+        z-index: 1;
+        margin: 0 1.3333vw;
+        .icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+        }
+    }
+
+    .content{
+        z-index: 1;
+        margin: 0 1.3333vw;
+        .tag{
+            width:100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #7bed9f;
+            border: 1px solid #7bed9f;
+            text-shadow: 1px 1px 5px #7bed9f;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .title {
+            color: #ffffff;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+    
+        .info {
+            color: #888482;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+        }
+    }
+
+    .bg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        filter: blur(20px);
+    }
+
+    .bg_mask {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}

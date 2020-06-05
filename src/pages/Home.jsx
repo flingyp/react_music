@@ -30,8 +30,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
-
-        console.log(props)
         if(props.location.pathname != '/discovery' && props.location.pathname != '/playlist' && props.location.pathname != '/newmusic' && props.location.pathname != '/mv') { //eslint-disable-line
             props.history.push('/discovery') 
         }
