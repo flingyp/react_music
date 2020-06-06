@@ -9,41 +9,14 @@ class PlayListTop extends Component {
         return ( 
             <div className="top_card">
                 <div className="icon_warp">
-                    <img className="icon" src="http://p1.music.126.net/WvycJs_TU3RnbPGv6AUHFg==/109951164754514726.jpg" alt="精品歌单"/>
+                    <img className="icon" src={this.props.boutiquePlaylistData.coverImgUrl} alt="精品歌单"/>
                 </div>
                 <div className="content">
                     <div className="tag">精品歌单</div>
-                    <div className="title">往事不可追，唯有回忆和音乐作陪</div>
-                    <div className="info">岁月是神偷，轻易偷走最珍贵的时间。
-往事不可追，唯有回忆作陪。
-
-1990年的岁末没有严冬的寒冷，空气中弥漫着淡淡的温暖，这个时候的罗大佑已经36岁并发行了一首温暖胜过艳阳的歌曲《恋曲1990》。同年的郭富城发布专辑《对你爱不完》并迅速走红。
-
-1991年中国著名摇滚乐队黑豹乐队发行了他们的首张专辑《黑豹》，梅艳芳发布了新歌《亲密爱人》送给他的男朋友保罗，可以说是他们的爱情恋曲。
-
-90年代的李宗盛已经是滚石的金牌创作人，并于92年创作了如今的至尊级金曲《当爱已成往事》，首次与林忆莲搭档对唱，而这一年王菲一夜成名站到了香港乐坛的最顶峰，“四大天王”也崛起，港星开始流行大陆。太长时间没有发新曲的张信哲，似乎已被人遗忘。
-
-1993年的张学友处于事业低峰期，女朋友罗美薇的细心安慰，不离不弃使张学友慢慢恢复信心走上事业巅峰期，这一年张宇发布专辑《用心良苦》轰动一时，奠定了当时“苦情男”的地位。
-
-《爱江山更爱美人》是李丽芬演唱的一首中国古典风格的歌曲。这首歌后来被选为1994年马景涛、叶童、周海媚版《倚天屠龙记》片尾曲，时至今日依旧是经典。
-
-1995年的央视春晚，孟庭苇穿着白色连衣裙出现，给喜爱她的千万观众带来现场版的《风中有朵雨做的云》，让那个年代的人现在依旧回味无穷。
-
-1996年24岁的张惠妹在恩师张雨生的协助下，推出首张专辑，打破台湾唱片年度销量记录。这一年范晓萱19岁，她唱着《樱桃小丸子》和《哆啦A梦》的中文主题曲，走进了歌迷视野。
-
-1997年任贤齐开始走红，而这一年华语乐坛最富可能性的天才音乐人张雨生车祸病世，终年31岁。
-
-.......
-
-已经离我们远去的那个时代，因为有好音乐的存在，而历历在目。
-
-那是华语音乐辉煌的十年，也是华语音乐群雄逐鹿的十年。
-
-那是我们一起走过的青春，那里有音乐人奋斗的足迹，那里也有悲欢离合的故事。
-
-PS：简介从简写的，没有写到的希望大家多多包涵。</div>
+                    <div className="title">{this.props.boutiquePlaylistData.name}</div>
+                    <div className="info">{this.props.boutiquePlaylistData.description}</div>
                 </div>
-                <img src="http://p1.music.126.net/WvycJs_TU3RnbPGv6AUHFg==/109951164754514726.jpg" alt="" className="bg"/>
+                <img src={this.props.boutiquePlaylistData.coverImgUrl} alt="" className="bg"/>
                 {/* 背景遮罩层 */}
                 <div className="bg_mask"></div> 
             </div>    

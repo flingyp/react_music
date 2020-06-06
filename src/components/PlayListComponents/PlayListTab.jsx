@@ -7,7 +7,6 @@ class PlayListTab extends Component {
         this.state = { 
             currentActivedIndex: 0
         }
-        console.log(props)
     }
     render() { 
         return (  
@@ -36,7 +35,9 @@ class PlayListTab extends Component {
         this.setState({
             currentActivedIndex: index
         })
-        console.log(this.props.tabData[index])
+        const cat = this.props.tabData[index]
+        this.props.changeBoutiquePlaylistData(cat)
+        this.props.changePersonalizeData(cat)
     }
 }
  

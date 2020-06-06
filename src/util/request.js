@@ -122,3 +122,34 @@ export const simiMv = async (id) => {
         }
     })
 }
+
+/**
+ * 获取 精品歌单 数据
+ * 参数地址: /top/playlist/highquality 
+ * 参数: cat( 比如 " 华语 "、" 古风 " 、" 欧美 "、" 流行 ", 默认为 "全部",)  limit  取出数量 （这里我们只需要1条数据就可以）
+ */
+export const boutiquePlaylist = async (cat) => {
+    return await axios.get('/top/playlist/highquality', {
+        params: {
+            cat,
+            limit: 1
+        }
+    })
+}
+
+
+/**
+ * 获取 歌单 ( 网友精选碟 ) 数据
+ * 参数地址: /top/playlist   
+ * 参数: cat( 比如 " 华语 "、" 古风 " 、" 欧美 "、" 流行 ", 默认为 "全部",) limit 取出数量  offset: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)*50, 其中 50 为 limit 的值
+ */
+
+export const topPlaylist = async (cat, limit, offset) => {
+    return await axios.get('/top/playlist', {
+        params: {
+            cat,
+            limit, 
+            offset
+        }
+    })
+}

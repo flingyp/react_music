@@ -22,18 +22,26 @@ class PlayListPagination extends Component {
             )
         } else {
             return  personalizeData && personalizeData.map((item) => {
-                return  <li key={item.id} className="item">
+                return  <li key={item.userId} className="item">
                             <div className="itemImg" onClick={() => {this.props.goPlayListDetail(item.id)}}>
                                 <div className="desc-wrap">
-                                    <span className="desc">{item.copywriter}</span>
+                                    <span className="desc">播放量：{item.playCount}</span>
                                 </div>
-                                <img src={item.picUrl} alt={item.alg}/>
+                                <img src={item.coverImgUrl} alt={item.alg}/>
                                 <IconFont className="iconfont" type="icon-bofang" />
                             </div>
                             <p className="itemName">{item.name}</p>
                         </li>
             })
         }
+    }
+
+    change(page) {
+        this.props.changePage(page)
+    }
+
+    changePageSize(current, size) {
+        this.props.changeSize(size)
     }
 
     render() { 
@@ -46,7 +54,14 @@ class PlayListPagination extends Component {
                 </div>
 
                 <div className="pagination">
-                    <Pagination defaultCurrent={1} total={50} />
+                    <Pagination 
+                        pageSize={this.props.limit} 
+                        onChange={this.change.bind(this)}
+                        onShowSizeChange={this.changePageSize.bind(this)}  
+                        defaultCurrent={1} 
+                        pageSizeOptions={['5', '10', '15']}
+                        total={this.props.total}   
+                    />
                 </div>
             </div>    
         );
