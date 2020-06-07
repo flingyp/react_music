@@ -153,3 +153,17 @@ export const topPlaylist = async (cat, limit, offset) => {
         }
     })
 }
+
+/**
+ * 获取 新歌速递 数据
+ * 参数地址: /top/song
+ * 参数: type  全部:0  华语:7 欧美:96 日本:8  韩国:16
+ */
+
+export const topSong = async (type) => {
+    return await axios.get('/top/song', {
+        params: {
+            type
+        }
+    })
+}

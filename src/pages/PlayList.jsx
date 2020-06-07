@@ -36,8 +36,8 @@ class PlayList extends Component {
 
     goPlayListDetail(id) {
         // 跳转到 歌单详情页面
-        // this.props.history.push(`/playlist/${id}`) 
-        console.log(id)
+        this.props.history.push(`/playlist/${id}`) 
+        // console.log(id)
     }
 
     // 获取 top 部分 精品歌单数据

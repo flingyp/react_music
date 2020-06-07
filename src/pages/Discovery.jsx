@@ -3,7 +3,7 @@ import ReactSwiper from '../components/DiscoveryComponents/ReactSwiper'
 import DiscoveryPlayList from '../components/DiscoveryComponents/DiscoveryPlayList'
 import DiscoveryNemMusic from '../components/DiscoveryComponents/DiscoveryNemMusic'
 import DiscoveryMv from '../components/DiscoveryComponents/DiscoveryMv'
-import store from '../store/index';
+// import store from '../store/index';
 import {swiperData, personalizedData, newSongData, newMvData, songUrl} from '../util/request'
 
 import { connect } from 'react-redux'

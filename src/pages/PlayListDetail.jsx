@@ -134,7 +134,6 @@ class PlayListDetail extends Component {
 
     async goPlayMusic(id) {
         // 1. 获取 最新音乐 该item项的 歌曲id
-        console.log(id)
         // 2. 根据 歌曲 id 请求歌曲播放地址
         const res = await songUrl(id)
         const url = res.data.data[0].url
