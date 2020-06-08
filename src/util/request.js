@@ -167,3 +167,20 @@ export const topSong = async (type) => {
         }
     })
 }
+
+/**
+ * 获取 全部 MV
+ * 请求地址： /mv/all 
+ * 参数 ： area 地区  type 类型   order 排序  limit 取出数量 offset 用于分页
+ */
+export const mvAll = async (area, type, order, limit, offset) => {
+    return await axios.get('/mv/all', {
+        params: {
+            area, 
+            type,
+            order,
+            limit, 
+            offset
+        }
+    })
+}

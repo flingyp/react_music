@@ -56,6 +56,7 @@ class PlayListPagination extends Component {
                 <div className="pagination">
                     <Pagination 
                         pageSize={this.props.limit} 
+                        current={this.props.defaultPage}
                         onChange={this.change.bind(this)}
                         onShowSizeChange={this.changePageSize.bind(this)}  
                         defaultCurrent={1} 

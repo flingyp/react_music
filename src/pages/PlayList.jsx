@@ -101,6 +101,7 @@ class PlayList extends Component {
                     goPlayListDetail={this.goPlayListDetail.bind(this)} 
                     changePage={this.changePage.bind(this)} 
                     changeSize={this.changeSize.bind(this)}
+                    defaultPage={this.state.defaultPage}
                 />
             </div>
         );

@@ -1,0 +1,69 @@
+@import '../GlobalVariable.less';
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 8.875rem;
+
+    .newmv{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1.6vw 0;
+        .item{
+            width: 16vw;
+            height: 10rem;
+            margin: 4rem .8vw;
+            .img_wrap{
+                width: 100%;
+                position: relative;
+                cursor: pointer;
+
+                img{
+                    width: 100%;
+                    height: 10.8125rem;
+                    border-radius: .625rem;
+                }
+                .num_wrap{
+                    position: absolute;
+                    display: flex;
+                    top: 0;
+                    right: .0625rem;
+                    color: #fff;
+                    opacity: 0.8;
+
+                    .iconfont ,.num {
+                        font-size: .875rem;
+                        line-height: 1.2rem;
+                        padding: .125rem .03125rem 0 .0625rem;
+                    }
+                }
+            }
+
+            .info_wrap{
+                .name{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: .9375rem;
+                    margin: 0;
+                    opacity: 0.8;
+                    font-weight: 600;
+                    letter-spacing: .0625rem;
+                    color: #000;
+                    text-shadow: .1875rem 0rem .3125rem rgba(0, 0, 0, 0.4);
+                    -webkit-line-clamp: 2;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    padding: 0 0 .3125rem 0;
+                }
+
+                .singer{
+                    color: #ccc;
+                    font-weight: 700;
+                    letter-spacing: .0625rem;
+                    font-size: .875rem;
+                }   
+            }
+        }
+    }
+}
