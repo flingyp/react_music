@@ -15,6 +15,8 @@ import Mv from './Mv'
 import Audio from './Audio'
 import PlayListDetail from './PlayListDetail'
 import MvDetail from './MvDetail'
+// import Search from 'antd/lib/transfer/search';
+import Search from './Search'
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -73,7 +75,7 @@ class Home extends Component {
 
                     <Layout className="site-layout" style={{ marginLeft: 200 }}>
                         <Header className="site-layout-background Header" style={{ padding: 0 }}>
-                            <HomeHeader></HomeHeader>
+                            <HomeHeader goSearchResult={this.goSearchResult.bind(this)}></HomeHeader>
                         </Header>
                         <Content key={this.props.location.key} style={{ margin: '1.5rem 1rem 0', overflow: 'initial' }}>
                             <Route exact path="/discovery" component={Discovery}></Route>
@@ -82,6 +84,7 @@ class Home extends Component {
                             <Route exact path="/newmusic" component={NewMusic}></Route>
                             <Route exact path="/mv" component={Mv}></Route>
                             <Route path="/mv/:id" component={MvDetail}></Route>
+                            <Route path="/search" component={Search}></Route>
                         </Content>
                     </Layout>
                 </Layout>
@@ -90,6 +93,14 @@ class Home extends Component {
                 </Footer>
             </div>    
         );
+    }
+
+    goSearchResult(value) {
+        // 跳转到搜索页面 并且 携带参数 value 值
+        this.props.history.push({
+            pathname: "/search",
+            value
+        }) 
     }
 }
 

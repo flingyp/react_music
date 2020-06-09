@@ -1,0 +1,53 @@
+.muscis{
+    width: 90%;
+    margin: 1.3333vw auto;
+    
+    .musics_title{
+        display: flex;
+        color: #909399;
+        text-shadow: .0625rem .0625rem 1.25rem #909399;
+        font-weight: 600;
+
+        div:nth-child(1) {
+            flex: 1;
+        }
+        div:nth-child(2) {
+            flex: 2;
+        }
+        div:nth-child(3) {
+            flex: 2;
+        }
+        div:nth-child(4) {
+            flex: 2;
+        }
+    }
+
+    .musics_items{
+        .musics_item{
+            display: flex;
+            align-items: center;
+            padding: 1.3333vw 0;
+            color: #000;
+            cursor: pointer;
+            .item_index{
+                flex: 1;
+                font-size: 1.0625rem;
+                padding-left: 10px;
+            }
+            .item_title{
+                flex: 2;
+            }
+            .item_singer{
+                flex: 2;
+            }
+            .item_album{
+                flex: 2;
+            }
+        }
+
+        .musics_item:hover{
+            background:#eee;
+            border-radius: 15px;
+        }
+    }
+}

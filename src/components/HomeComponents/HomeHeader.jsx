@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import {Input} from 'antd'
-import {SearchOutlined} from '@ant-design/icons';
+
+const { Search } = Input;
+
 
 class HomeHeader extends Component {
     constructor(props) {
@@ -12,11 +14,11 @@ class HomeHeader extends Component {
         return (  
             <div className="Home-Header">
                 <div>
-                    <Input
+                    <Search
                         style={{borderRadius: '.625rem'}}
                         placeholder="搜索歌曲、歌手或MV"
-                        prefix={<SearchOutlined />}
                         size="large"
+                        onSearch={this.searchResult.bind(this)}
                     />
                 </div>
                 <div>
@@ -31,6 +33,13 @@ class HomeHeader extends Component {
      */
     goHomePage() {
         this.props.history.push('/discovery');
+    }
+
+    /**
+     * 搜索框 回车时执行的方法
+     */
+    searchResult(value) {
+        this.props.goSearchResult(value)
     }
 }
  

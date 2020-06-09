@@ -69,7 +69,6 @@ class NewMusic extends Component {
             // 把修改的时间 重新赋给 duration
             item.duration = time
         })
-        console.log(topSongData)
         if(topSongData) {
             this.setState({
                 topSongData,

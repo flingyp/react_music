@@ -184,3 +184,20 @@ export const mvAll = async (area, type, order, limit, offset) => {
         }
     })
 }
+
+/**
+ * 搜索内容
+ * 请求地址： /search
+ * 参数： keywords 关键词 limit 数量  offset 用于分页 type 类型  (100 歌手 1000 歌单  1006 MV)
+ */
+
+export const search = async (keywords, type, limit, offset,) => {
+    return await axios.get('/search', {
+        params: {
+            keywords,
+            type,
+            limit,
+            offset
+        }
+    })
+}

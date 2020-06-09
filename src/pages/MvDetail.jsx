@@ -115,7 +115,7 @@ class MvDetail extends Component {
                                     return (
                                         <div key={item.id} className="item">
                                             <div className="img_wrap" onClick={this.goPlayMv.bind(this, item.id)}>
-                                                <img src={item.cover} />
+                                                <img src={item.cover} alt="" />
                                             </div>
                                             <div className="info_wrap">
                                                 <div className="name">{item.name}</div>

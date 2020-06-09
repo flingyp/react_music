@@ -22,7 +22,7 @@ class Mv extends Component {
     }
 
     async getMvData() {
-        if(this.state.newMvData.length!=0) {
+        if(this.state.newMvData.length!==0) {
            this.setState({
             newMvData: []
            })
