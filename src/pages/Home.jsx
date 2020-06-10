@@ -31,9 +31,34 @@ const IconFont = createFromIconfontCN({
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            defaultSelectedKeys: '1'
+        }
         if(props.location.pathname != '/discovery' && props.location.pathname != '/playlist' && props.location.pathname != '/newmusic' && props.location.pathname != '/mv') { //eslint-disable-line
             props.history.push('/discovery') 
+        }
+    }
+    componentWillMount() {
+        if(this.props.location.pathname === '/discovery') {
+            console.log('discovery')
+            this.setState({
+                defaultSelectedKeys: '1'
+            })
+        }else if(this.props.location.pathname === '/playlist') {
+            console.log('playlist')
+            this.setState({
+                defaultSelectedKeys: '2'
+            })
+        }else if(this.props.location.pathname === '/newmusic') {
+            console.log('newmusic')
+            this.setState({
+                defaultSelectedKeys: '3'
+            })
+        }else if(this.props.location.pathname=== '/mv'){
+            console.log('mv')
+            this.setState({
+                defaultSelectedKeys: '4'
+            })
         }
     }
 
@@ -53,7 +78,7 @@ class Home extends Component {
                             <Button className="button_item" size="large"  shape="circle" icon={<CaretLeftOutlined />} />
                             <Button className="button_item" size="large"  shape="circle" icon={<CaretRightOutlined />} />
                         </div>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                        <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
                             <Menu.Item className="Menu-Item" key="1">
                                 <IconFont type="icon-kefu" className="iconf" />
                                 <Link to="/discovery" className="menus">发现音乐</Link>
