@@ -62,6 +62,15 @@ class Home extends Component {
         }
     }
 
+    goBack() {
+        this.props.history.go(-1)
+        // window.location.replace(document.referrer)
+    }
+
+    goTo() {
+        this.props.history.go(1)
+    }
+
     render() { 
         return ( 
             <div>
@@ -75,8 +84,8 @@ class Home extends Component {
                         }}
                         >
                         <div className="buttons">
-                            <Button className="button_item" size="large"  shape="circle" icon={<CaretLeftOutlined />} />
-                            <Button className="button_item" size="large"  shape="circle" icon={<CaretRightOutlined />} />
+                            <Button onClick={this.goBack.bind(this)} className="button_item" size="large"  shape="circle" icon={<CaretLeftOutlined />} />
+                            <Button onClick={this.goTo.bind(this)}  className="button_item" size="large"  shape="circle" icon={<CaretRightOutlined />} />
                         </div>
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
                             <Menu.Item className="Menu-Item" key="1">

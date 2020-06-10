@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/pages/PlayListDetail.less'
-import { List } from 'antd';
+import { List, message } from 'antd';
 import { connect } from 'react-redux'
 
 import {playlistDetail, songUrl} from '../util/request'
@@ -137,6 +137,9 @@ class PlayListDetail extends Component {
         // 2. 根据 歌曲 id 请求歌曲播放地址
         const res = await songUrl(id)
         const url = res.data.data[0].url
+        if(!url) {
+            message.warning('抱歉，歌曲没有音源');
+        }
         // 3. 把 歌曲的url 地址 存储到 redux 中
         this.props.songUrl(url)
         // 4. 播放歌曲 在 Home页面实现

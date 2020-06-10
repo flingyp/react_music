@@ -7,7 +7,7 @@ import SearchMusics from './SearchMusics';
 import SearchPlayList from './SearchPlayList'
 import SearchMv from './SearchMv'
 import '../../css/components/SearchPagination.less'
-import { Tabs,Pagination  } from 'antd';
+import { Tabs,Pagination,message  } from 'antd';
 const { TabPane } = Tabs;
 
 
@@ -42,6 +42,9 @@ class SearchPagination extends Component {
     async goPlayMusic(id) {
         const res = await songUrl(id)
         const url = res.data.data[0].url
+        if(!url) {
+            message.warning('抱歉，歌曲没有音源');
+        }
         this.props.songUrl(url)
     }
 

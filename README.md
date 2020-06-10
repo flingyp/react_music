@@ -113,3 +113,10 @@ withRouter介绍： 如果我们某个组件没有被Router管理, 但是我们�
 ### 8. 无论有没有Route组件包裹还是出现 this.props.history 还是 undefined 的情况下 还是可以使用  withRouter 组件
 
 [参考文章](https://www.jianshu.com/p/704b773b54fb)
+
+
+### 9. this.setState() 方法  也是一个异步的过程 
+
+在做MV部分的分页功能时遇见点击下一页获取数据时，数据没有发生改变，结果发现是传递参数没有变 就 在 this.setState 前 加上 await 就解决参数不变的问题了。
+
+关于 setState 的注意点可以参考人家文章：[参考文章](https://www.jianshu.com/p/a883552c67de)

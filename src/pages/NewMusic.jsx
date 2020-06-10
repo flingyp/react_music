@@ -80,6 +80,9 @@ class NewMusic extends Component {
     async goPlayMusic(id) {
         const res = await songUrl(id)
         const url = res.data.data[0].url
+        if(!url) {
+            message.warning('抱歉，歌曲没有音源');
+        }
         this.props.songUrl(url)
     }
 

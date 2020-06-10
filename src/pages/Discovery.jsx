@@ -5,7 +5,7 @@ import DiscoveryNemMusic from '../components/DiscoveryComponents/DiscoveryNemMus
 import DiscoveryMv from '../components/DiscoveryComponents/DiscoveryMv'
 // import store from '../store/index';
 import {swiperData, personalizedData, newSongData, newMvData, songUrl} from '../util/request'
-
+import {message} from 'antd'
 import { connect } from 'react-redux'
 import {SET_SWIPER_DATA, SET_PERSONALIZE_DATA, SET_NEWSONG_DATA, SET_NEWMV_DATA, GET_CURRENT_SONG_URL} from '../store/actionTypes'
 
@@ -54,6 +54,9 @@ class Discovery extends Component {
         // 2. 根据 歌曲 id 请求歌曲播放地址
         const res = await songUrl(id)
         const url = res.data.data[0].url
+        if(!url) {
+            message.warning('抱歉，歌曲没有音源');
+        }
         // 3. 把 歌曲的url 地址 存储到 redux 中
         this.props.songUrl(url)
         // 4. 播放歌曲 在 Home页面实现
